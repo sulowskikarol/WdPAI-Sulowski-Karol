@@ -1,0 +1,154 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-style: italic;
+    background: linear-gradient(180deg, rgba(141, 122, 94, 0.91) 60.83%, rgba(64, 53, 37, 0.76) 97.23%);
+    display: flex;
+}
+
+nav {
+    width: 20%;
+    margin:0;
+    border-right: 1px solid white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: rgb(121 106 83 / 76%);
+}
+
+nav img {
+    margin: 2em 0;
+    height: 30%;
+}
+
+nav ul {
+    list-style-type: none;
+    color:rgba(64, 53, 37, 0.76);
+    padding: 0;
+    height: 70%;
+    position: relative;
+    text-align: center;
+}
+
+nav li {
+    padding: 0.8em;
+    width: 60%;
+    margin: 0.5em 15%;
+    border-radius: 1em;
+    background-color: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+nav li:last-child {
+    position: absolute;
+    bottom: 0;
+    margin: 0.5em 15%;
+}
+
+main {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: first baseline;
+}
+
+main .header {
+    height: 15%;
+    width: 95%;
+    border-bottom: 1px solid white;
+    align-self: center;
+}
+
+section {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.bike-component {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bike-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 45%);
+    grid-gap: 1em;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+bike-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    margin: 0.5em;
+    border-radius: 1em;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+bike-button img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1em;
+}
+
+bike-button sign {
+    height: 30%;
+    width: 100%;
+    padding: 5px;
+    font-size: 100%;
+    letter-spacing: 2px;
+    color:rgba(64, 53, 37, 0.76);
+    text-align: center;
+}
+
+h1 {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 50px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 4.5px;
+}
+
+h2 {
+    color: #FFF;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 4.5px;
+    margin-top: 45px;
+    margin-bottom: 5px;
+}
+
+button {
+    padding: 0.8em;
+    margin: 3em 0 0.5em;
+    border-radius: 1em;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    font-family: Inter;
+    font-style: italic;
+    color:rgba(64, 53, 37, 0.76);
+    width: 15vw;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
