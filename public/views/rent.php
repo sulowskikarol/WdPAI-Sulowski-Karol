@@ -3,15 +3,15 @@
 <html>
     <head>
         <title>RENT A BIKE</title>
-        <link rel="stylesheet" href="../css/main-page-style.css"/>
-        <link rel="stylesheet" href="../css/calendar.css"/>
+        <link rel="stylesheet" href="public/css/main-page-style.css"/>
+        <link rel="stylesheet" href="public/css/calendar.css"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-        <script src="../js/calendar.js" defer></script>
+        <script src="public/js/calendar.js" defer></script>
     </head>
 
     <body>
         <nav>
-            <img src="../img/logo.svg"/>
+            <img src="public/img/logo.svg"/>
             <ul>
                 <li>Wypożyczalnia</li>
                 <li>Serwis</li>
@@ -28,27 +28,27 @@
                     <h2>Wybierz rower</h2>
                     <div class="bike-gallery">
                         <bike-button id="miejskie">
-                            <img src="../img/uploads/miejskie.webp"/>
+                            <img src="public/img/uploads/miejskie.webp"/>
                             <sign>Miejskie</sign>
                         </bike-button>
                         <bike-button id="elektryczne">
-                            <img src="../img/uploads/elektryczne.webp"/>
+                            <img src="public/img/uploads/elektryczne.webp"/>
                             <sign>Elektryczne</sign>
                         </bike-button>
                         <bike-button id="górskie">
-                            <img src="../img/uploads/górskie.webp"/>
+                            <img src="public/img/uploads/górskie.webp"/>
                             <sign>Górskie</sign>
                         </bike-button>
                         <bike-button id="dziecięce">
-                            <img src="../img/uploads/dziecięce.webp"/>
+                            <img src="public/img/uploads/dziecięce.webp"/>
                             <sign>Dziecięce</sign>
                         </bike-button>
                         <bike-button id="szosowe">
-                            <img src="../img/uploads/szosowe.webp"/>
+                            <img src="public/img/uploads/szosowe.webp"/>
                             <sign>Szosowe</sign>
                         </bike-button>
                         <bike-button id="gravelowe">
-                            <img src="../img/uploads/gravelowe.webp"/>
+                            <img src="public/img/uploads/gravelowe.webp"/>
                             <sign>Gravelowe</sign>
                         </bike-button>
                     </div>

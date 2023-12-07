@@ -30,8 +30,9 @@ h1 {
     font-size: 50px;
 }
 
-button-login,
-button-register {
+.button-login,
+.button-register {
+/*button {*/
     padding: 10px;
     border-radius: 10px;
     opacity: 0.8;
@@ -42,13 +43,13 @@ button-register {
     margin: 10px 10px auto 100px;
 }
 
-button-login {
+.button-login {
     margin-top: 40px;
     background-color: white;
     color: #575656;
 }
 
-button-register {
+.button-register {
     background: rgba(141, 122, 94, 0.91);
     color: white;
 }

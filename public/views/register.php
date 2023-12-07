@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 
+
+
 <html>
     <head>
         <title>REGISTER PAGE</title>
-        <link rel="stylesheet" href="../css/style.css"/>
+        <link rel="stylesheet" href="public/css/style.css"/>
     </head>
 
     <body>
         <div class="container">
             <div class="logo">
-                <img src="../img/logo.svg"/>
+                <img src="public/img/logo.svg"/>
             </div>
             <div class="login-container">
                 <h1>Rejestracja</h1>
