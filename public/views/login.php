@@ -12,7 +12,7 @@
         </div>
         <div class="login-container">
             <h1>Logowanie</h1>
-            <form action='login' method="post">
+            <form action='login' method="POST">
                 <input name="email" type="text" placeholder="Podaj adres email"/>
                 <input name="password" type="password" placeholder="Podaj hasło"/>
                 <div class="message">
