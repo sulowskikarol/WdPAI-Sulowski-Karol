@@ -8,6 +8,8 @@ $path = parse_url( $path, PHP_URL_PATH);
 Router::get('', 'DefaultController');
 Router::get('register', 'DefaultController');
 Router::get('rent', 'DefaultController');
+Router::get('service', 'DefaultController');
 Router::post('login', 'SecurityController');
+Router::post('addService', 'ServiceController');
 
 Router::run($path);

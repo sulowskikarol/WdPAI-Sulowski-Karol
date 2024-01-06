@@ -5,7 +5,7 @@ require_once __DIR__.'/../models/User.php';
 class SecurityController extends AppController {
 
     public function login() {
-        $user = new User('johnsnow@example.com', 'admin', 'John', 'Snow');
+        $user = new User('admin', 'admin', 'John', 'Snow');
 
         if (!$this->isPost()) {
             return $this->render('login');

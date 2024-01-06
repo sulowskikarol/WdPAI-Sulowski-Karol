@@ -18,4 +18,9 @@ class DefaultController extends AppController {
     {
         $this->render('rent');
     }
+
+    public function service()
+    {
+        $this->render('service');
+    }
 }
