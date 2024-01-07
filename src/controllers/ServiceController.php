@@ -11,15 +11,22 @@ class ServiceController extends AppController
     private $messages = [];
 
     public function addService() {
-        if ($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
-            move_uploaded_file(
-                $_FILES['file']['tmp_name'],
-                dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
-            );
-            return $this->render('service', ['messages' => $this->messages]);
-        }
+        if ($this->isPost()) {
+            if (empty($_POST['repair-note'])) {
+                $this->messages[] = 'Nie wprowadzono opisu usterki.';
+                return $this->render('service', ['messages' => $this->messages]);
+            }
 
-        $service = new Service($_POST['repair-note'], $_FILES['file']['name']);
+            if (is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])) {
+                move_uploaded_file(
+                    $_FILES['file']['tmp_name'],
+                    dirname(__DIR__).self::UPLOAD_DIRECTORY.$_FILES['file']['name']
+                );
+                return $this->render('service', ['messages' => $this->messages]);
+            }
+
+            $service = new Service($_POST['repair-note'], $_FILES['file']['name']);
+        }
 
         $this->render('service', ['messages' => $this->messages]);
     }

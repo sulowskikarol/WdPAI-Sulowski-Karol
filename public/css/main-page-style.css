@@ -116,6 +116,9 @@ bike-button sign {
 form {
     padding-top: 8px;
     width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 textarea {
@@ -126,6 +129,13 @@ textarea {
     font-size: 18px;
     border-radius: 1em;
     text-indent: 5px;
+}
+
+.message {
+    letter-spacing: 0.1em;
+    color: red;
+    margin-top: 0.6em;
+    font-size: 17px;
 }
 
 .add-file {
