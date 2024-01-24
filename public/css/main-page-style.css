@@ -2,50 +2,10 @@ body {
     width: 100vw;
     height: 100vh;
     margin: 0;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
     font-style: italic;
     background: linear-gradient(180deg, rgba(141, 122, 94, 0.91) 60.83%, rgba(64, 53, 37, 0.76) 97.23%);
     display: flex;
-}
-
-nav {
-    width: 20%;
-    margin:0;
-    border-right: 1px solid white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    background: rgb(121 106 83 / 76%);
-}
-
-nav img {
-    margin: 2em 0;
-    height: 30%;
-}
-
-nav ul {
-    list-style-type: none;
-    color:rgba(64, 53, 37, 0.76);
-    padding: 0;
-    height: 70%;
-    position: relative;
-    text-align: center;
-}
-
-nav li {
-    padding: 0.8em;
-    width: 60%;
-    margin: 0.5em 15%;
-    border-radius: 1em;
-    background-color: white;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-nav li:last-child {
-    position: absolute;
-    bottom: 0;
-    margin: 0.5em 15%;
+    overflow: hidden;
 }
 
 main {
@@ -53,6 +13,7 @@ main {
     width: 80%;
     flex-direction: column;
     align-items: first baseline;
+    overflow: auto;
 }
 
 main .header {
@@ -69,12 +30,19 @@ section {
     justify-content: center;
 }
 
-.bike-component,
-.note-component {
+.bike-section,
+.note-component,
+.calendar-section {
     width: 45%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+}
+
+.date-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1em 2em;
 }
 
 .bike-gallery {
@@ -116,9 +84,12 @@ bike-button sign {
 form {
     padding-top: 8px;
     width: 90%;
+}
+
+form div {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 }
 
 textarea {
@@ -129,28 +100,44 @@ textarea {
     font-size: 18px;
     border-radius: 1em;
     text-indent: 5px;
+    margin-bottom: 3em;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .message {
     letter-spacing: 0.1em;
     color: red;
-    margin-top: 0.6em;
     font-size: 17px;
 }
 
 .add-file {
     display: block;
-    padding: 15px;
+    padding: 2em;
     background-color: white;
     border-radius: 1em;
-    margin: auto;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 4em;
+}
+
+input[type="date"] {
+    display: block;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    padding: 1.5em;
+    border-radius: 1em;
+    border:none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#rent-start,
+#rent-end {
+    padding: 1em;
 }
 
 h1 {
     color: #FFF;
     text-align: center;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
     font-size: 50px;
     font-style: italic;
     font-weight: 300;
@@ -161,8 +148,7 @@ h1 {
 h2 {
     color: #FFF;
     text-align: center;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 30px;
     font-style: italic;
     font-weight: 300;
@@ -176,27 +162,57 @@ h3 {
     color: #FFF;
     text-align: center;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: Inter;
     font-size: 15px;
     font-style: italic;
     font-weight: 300;
     line-height: normal;
     letter-spacing: 3px;
-    margin-top: 10px;
+    margin-top: auto;
     margin-bottom: 10px;
 }
 
 button {
-    padding: 0.8em;
-    margin: 3em 5em 0.5em 5em;
+    display: block;
+    padding: 0.8em 1.5em;
+    margin: 1.5em auto;
     border-radius: 1em;
     background-color: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border: none;
-    font-family: Inter;
     font-style: italic;
     color:rgba(64, 53, 37, 0.76);
-    width: 15vw;
     font-size: 20px;
     letter-spacing: 5px;
+    max-width: fit-content;
+}
+
+button,
+bike-button {
+    cursor: pointer;
+}
+
+.order {
+    overflow-x: auto;
+    background-color: #FFFFFF;
+    font-size: 18px;
+}
+
+.order-element {
+    padding: 0.3em 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-width: 10em;
+}
+
+#category-name {
+    padding: 0 2em;
+}
+
+#minus-sign {
+    border-radius: 100%;
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
+    text-align: center;
 }

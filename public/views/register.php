@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-
-
 <html>
     <head>
         <title>REGISTER PAGE</title>
@@ -16,11 +14,25 @@
             </div>
             <div class="login-container">
                 <h1>Rejestracja</h1>
-                <form>
+                <form action="register" method="POST">
                     <input name="email" type="text" placeholder="Podaj adres email"/>
-                    <input name="password" type="password" placeholder="Podaj hasło"/>
+                    <input
+                            name="password"
+                            type="password"
+                            placeholder="Podaj hasło"
+                            title="Hasło powinno zawierać co najmniej 8 znaków, w tym małe i wielkie litery oraz cyfry."
+                    />
                     <input name="c_password" type="password" placeholder="Potwierdź hasło"/>
-                    <button class="button-login">ZAREJESTRUJ</button>
+                    <div class="message">
+                        <?php if(isset($messages)) {
+                            foreach ($messages as $message) {
+                                echo $message;
+                            }
+                        }
+                        ?>
+                    </div>
+                    <button class="button-login" type="submit">ZAREJESTRUJ</button>
+                    <p>Masz już konto? <a href="/login">Zaloguj się</a></p>
                 </form>
             </div>
         </div>

@@ -24,7 +24,7 @@
                     ?>
                 </div>
                 <button class="button-login" type="submit">ZALOGUJ</button>
-                <button class="button-register" >ZAREJESTRUJ</button>
+                <p>Nie masz jeszcze konta? <a href="/register">Zarejestruj się</a></p>
             </form>
         </div>
     </div>
