@@ -80,18 +80,21 @@ function renderOrder() {
     });
 }
 
-function isRentValid(rentDate, returnDate) {
+function isRentValid(rentDateInput, returnDateInput) {
+
+    if (!rentDateInput.value) {
+        alert('Wybierz datę wypożyczenia')
+        return false;
+    }
+
+    if (!returnDateInput.value) {
+        alert('Wybierz datę zwrotu')
+        return false;
+    }
+
+    const rentDate = new Date(rentDateInput.value);
+    const returnDate = new Date(returnDateInput.value);
     const today = new Date();
-
-    if (!rentDate) {
-        alert('Wybierz datę wypożyczenia')
-        return false;
-    }
-
-    if (!returnDate) {
-        alert('Wybierz datę wypożyczenia')
-        return false;
-    }
 
     if (rentDate < today || returnDate <= rentDate) {
         alert('Wybrano niepoprawne daty')
@@ -150,9 +153,9 @@ confirmButton.addEventListener('click', function () {
     const rentDate = rentDateInput.value;
     const returnDate = returnDateInput.value;
 
-    if (isRentValid(rentDate, returnDate)) {
+    if (isRentValid(rentDateInput, returnDateInput)) {
         submitRent(rentDate, returnDate);
         //TODO przekierowanie do profilu
-    }
+   }
 });
 

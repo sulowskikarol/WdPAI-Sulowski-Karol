@@ -149,3 +149,19 @@ input::placeholder {
     color: white;
     border: 1px solid white;
 }
+
+@media only screen and (max-device-width: 650px) {
+    section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-column,
+    .right-column {
+        width: 90%;
+    }
+
+    main .header {
+        height: 10%;
+    }
+}

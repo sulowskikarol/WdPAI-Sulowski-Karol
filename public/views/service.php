@@ -37,18 +37,6 @@
                     <button type="submit">Kontynuuj</button>
                 </form>
             </section>
-            <div class="service-reservations">
-                <?php if(isset($services) && !empty($services))
-                    echo '<h2>Twoje umówione serwisy</h2>';
-                    foreach ($services as $service): ?>
-                <div class="service-section">
-                    <img src="public/img/service/<?= $service->getImage() ?>">
-                    <h3>Opis usterki: <?= $service->getDescription() ?></h3>
-                    <h3>Umówiony termin: <?= $service->getDate() ?></h3>
-                    <h3>Data rezerwacji: <?= $service->getPostedAt() ?></h3>
-                </div>
-                <?php endforeach; ?>
-            </div>
         </main>
     </body>
 </html>

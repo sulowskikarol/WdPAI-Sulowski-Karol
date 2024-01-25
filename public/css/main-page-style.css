@@ -89,7 +89,7 @@ form {
 form div {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 textarea {
@@ -215,4 +215,42 @@ bike-button {
     width: 25px;
     height: 25px;
     text-align: center;
+}
+
+@media only screen and (max-device-width: 650px) {
+    section {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        align-items: center;
+        justify-content: start;
+    }
+
+    .bike-section,
+    .calendar-section {
+        width: 90%;
+        align-items: center;
+    }
+
+    main .header {
+        height: 10%;
+    }
+
+    form div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .note-component {
+        width: 90%;
+    }
+
+    .calendar-section input {
+        width: 70%;
+    }
+
+    .calendar-section h3 {
+        font-size: 20px;
+        margin-top: 3em;
+    }
 }

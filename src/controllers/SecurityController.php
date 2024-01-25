@@ -28,7 +28,7 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['Nie istnieje użytkownik o podanym adresie email']]);
         }
 
-        if ($user->getPassword() !== $password) {
+        if (!password_verify($password, $user->getPassword())) {
             return $this->render('login', ['messages' => ['Niepoprawne hasło']]);
         }
 
@@ -71,7 +71,7 @@ class SecurityController extends AppController {
             return $this->render('register', ['messages' => ['W systemie istnieje już użytkownik o podanym adresie email']]);
         }
 
-        if (!$userRepository->createUser($email, $password)) {
+        if (!$userRepository->createUser($email, password_hash($password, PASSWORD_BCRYPT))) {
             return $this->render('register', ['messages' => ['Błąd systemu. Skontaktuj się z administratorem']]);
         }
 

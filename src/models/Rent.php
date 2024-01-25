@@ -30,6 +30,14 @@ class Rent
         return $this->rentedBikes;
     }
 
+    public function getRentedBikesAsString() {
+        $bikeStrings = array_map(function($bike) {
+            return trim($bike, '{}');
+        }, $this->rentedBikes);
+
+        return implode(', ', $bikeStrings);
+    }
+
     public function getUserId(): String
     {
         return $this->user_id;

@@ -43,6 +43,79 @@ class UserRepository extends Repository
             echo 'Błąd podczas dodawania użytkownika do bazy danych: '.$e->getMessage();
             return false;
         }
+    }
 
+    public function getUserDetails(int $user_id): array {
+        $stmt = $this->database->connect()->prepare('
+            SELECT kd.*
+            FROM konta k
+            JOIN konta_details kd ON k.id_konta_details = kd.id
+            WHERE k.konta_id = :user_id;
+        ');
+        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $user_details = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user_details == false) {
+            return [];
+        }
+
+        return $user_details;
+    }
+
+    public function setUserDetails(array $user_details): array {
+        $connection = $this->database->connect();
+        try {
+            $connection->beginTransaction();
+
+            $userDetailsFromBase = $this->getUserDetails($user_details['user_id']);
+            if (!empty($userDetailsFromBase)) {
+                $stmt = $connection->prepare('
+                    UPDATE konta_details
+                    SET imie = ?,
+                        nazwisko = ?,
+                        telefon = ?
+                    WHERE id = ?;
+                ');
+                $stmt->execute([
+                   $user_details['name'],
+                   $user_details['lastname'],
+                   $user_details['phone'],
+                   $userDetailsFromBase['id']
+                ]);
+                $connection->commit();
+                return ['success' => true, 'response' => 'Dane użytkownika zmienione poprawnie'];
+            }
+
+            $stmt = $connection->prepare('
+                INSERT INTO konta_details (imie, nazwisko, telefon) 
+                VALUES (?, ?, ?)
+                RETURNING id;
+            ');
+            $stmt->execute([
+               $user_details['name'],
+               $user_details['lastname'],
+               $user_details['phone']
+            ]);
+            $id_user_details = $stmt->fetchColumn();
+
+            $stmt = $connection->prepare('
+                UPDATE konta
+                SET id_konta_details = :id_user_details
+                WHERE konta_id = :user_id;
+            ');
+            $stmt->bindParam(':id_user_details', $id_user_details, PDO::PARAM_INT);
+            $stmt->bindParam('user_id', $user_details['user_id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            $connection->commit();
+            return ['success' => true, 'response' => 'Dane użytkownika dodane poprawnie'];
+
+        } catch (PDOException $e) {
+            $connection->rollBack();
+            echo $e->getMessage();
+            return ['success' => false, 'response' => 'Błąd podczas dodawnia do bazy danych'];
+        }
     }
 }

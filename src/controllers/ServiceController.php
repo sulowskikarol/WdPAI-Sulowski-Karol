@@ -25,8 +25,7 @@ class ServiceController extends AppController
             header("Location: /login");
             exit();
         }
-        $services = $this->serviceRepository->getUserServices($_SESSION['user_id']);
-        $this->render('service', ['services' => $services]);
+        $this->render('service');
     }
 
     public function addService() {

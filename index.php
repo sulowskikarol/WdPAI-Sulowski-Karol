@@ -15,5 +15,7 @@ Router::get('rent', 'RentController');
 Router::get('bike_categories', 'RentController');
 Router::post('submit_rent', 'RentController');
 Router::get('profile', 'ProfileController');
+Router::post('set_user_details', 'ProfileController');
+Router::get('admin_panel', 'DefaultController');
 
 Router::run($path);
